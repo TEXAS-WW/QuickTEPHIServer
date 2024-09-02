@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
   const accessCode = document.getElementById('accessCode').value;
 
   // Make the API call to the Node.js server
-  fetch('http://192.168.1.103/verifyAccessCode', {
+  fetch('http://143.198.57.45/verifyAccessCode', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json'
