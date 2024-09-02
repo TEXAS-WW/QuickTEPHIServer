@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
   const accessCode = document.getElementById('accessCode').value;
 
   // Make the API call to the Node.js server
-  fetch('http://localhost:4000/verifyAccessCode', {
+  fetch('http://192.168.1.103/verifyAccessCode', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json'
@@ -45,6 +45,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
   .then(data => {
 
       // Handle the response from the server
+      document.getElementById('responseMessage').innerText = ''
       document.getElementById('responseMessageSuccess').innerText = data.message;
       sessionStorage.setItem('access', 'permitted');
       setTimeout(()=>{
@@ -54,6 +55,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
   .catch(error => {
       console.error('Error:', error);
       sessionStorage.setItem('access', '');
+      document.getElementById('responseMessageSuccess').innerText =''
       document.getElementById('responseMessage').innerText = 'An error occurred. Please try again.';
   });
 });
