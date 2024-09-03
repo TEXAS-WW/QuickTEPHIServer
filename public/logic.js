@@ -14,7 +14,7 @@ function checkAuthorization() {
 // Run the check before the page content loads
 document.addEventListener('DOMContentLoaded', ()=> {
     const currentUrl = window.location.href;
-    if (currentUrl.includes('dashboard')) {
+    if (currentUrl.includes('dashboard') || currentUrl.includes('8100')) {
         checkAuthorization()
     }
 });
