@@ -30,8 +30,9 @@ app.use(express.json());
 app.use((req, res, next) => {
   res.setHeader(
     'Content-Security-Policy',
-    "frame-src 'self' http://127.0.0.1:8100/ http://143.198.57.45/ http://143.198.57.45:8100; script-src 'self' http://127.0.0.1;"
+    "frame-src 'self' http://127.0.0.1:8100/ http://143.198.57.45/ http://143.198.57.45:8100 http://143.198.57.45:8100/; script-src 'self' http://127.0.0.1;"
   );
+  res.setHeader('X-Frame-Options', 'http://143.198.57.45/ http://143.198.57.45:8100 http://143.198.57.45:8100/'); 
 
   res.setHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:4000');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
