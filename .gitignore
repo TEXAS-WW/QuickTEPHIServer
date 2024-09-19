@@ -3,3 +3,50 @@ node_modules/
 .env
 package*json
 package-lock*json
+
+# Ignore PyCharm-specific project files
+.idea/
+
+# Ignore workspace-specific configuration files (e.g., bookmarks, launch configurations, etc.)
+*.iws
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/dictionaries/
+.idea/vcs.xml
+
+# Ignore all the iml files
+*.iml
+
+# Ignore IntelliJ project files
+*.ipr
+
+# Ignore user-specific run configurations
+.idea/runConfigurations/
+
+# Ignore the compiled output from PyCharm’s JetBrains cache
+.idea/jsLibraryMappings.xml
+.idea/libraries/
+.idea/shelf/
+
+# Ignore virtual environments created via PyCharm
+.idea/python_terminal/
+.idea/virtualenvs/
+.idea/virtualenvs.xml
+
+# Ignore project dictionaries
+.idea/.idea_modules.xml
+
+# Ignore task-specific files
+.idea/tasks.xml
+.idea/scopes/scope_settings.xml
+
+# Ignore Python bytecode files and cache
+*.pyc
+__pycache__/
+
+# Virtualenv
+venv/
+ENV/
+
+# PyCharm log files
+.idea/log/
