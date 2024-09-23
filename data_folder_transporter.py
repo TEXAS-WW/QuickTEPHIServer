@@ -1,3 +1,5 @@
+import re
+
 import paramiko
 import ast
 import os
@@ -38,6 +40,7 @@ host1 = credentials['host1']
 def copy_dir(local_dir, remote_dir, sftp_object):
   for item in os.listdir(local_dir):
     local_path = os.path.join(local_dir, item)
+    local_path = re.sub(r"\\", "/", local_path)
     remote_path = f"{remote_dir}/{item}"
 
     if os.path.isdir(local_path):
@@ -96,9 +99,9 @@ def send_folder_to_Virtual_Machine(local_folder_path, remote_folder_path):
 
 
 if __name__ == "__main__":
-  local_folder_path = "C:/Users/xario/OneDrive/Documents/git repos/public-dashboard/Data"
+  local_folder_path = "C:/Users/xario/OneDrive/Documents/work/public-dashboard/Data"
   remote_folder_path = "/root/public-dashboard/Data"
 
-  local_folder_path = "C:/Users/xario/OneDrive/Documents/work/copydebug"
-  remote_folder_path = "/root/testing"
+  # local_folder_path = "C:/Users/xario/OneDrive/Documents/work/copydebug"
+  # remote_folder_path = "/root/testing"
   send_folder_to_Virtual_Machine(local_folder_path, remote_folder_path)
