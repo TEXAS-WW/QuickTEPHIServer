@@ -18,7 +18,8 @@ const pagePath = path.join(currentDirectory, 'dashboard.html');
 const homePagePath = path.join(currentDirectory, 'index.html');
 
 
-
+const hostIP = "129.106.9.127"
+const shinyPort = "9100"
 
 // Serve static files from the "public" directory.. JS files sepcifically
 app.use(express.static(path.join(__dirname, 'public')));
@@ -27,14 +28,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 
 
+
 app.use((req, res, next) => {
   res.setHeader(
     'Content-Security-Policy',
-    "frame-src 'self' http://127.0.0.1:8100/ http://143.198.57.45/ http://143.198.57.45:8100 http://143.198.57.45:8100/ http://143.198.57.45/8100; script-src 'self' http://127.0.0.1;"
+    `frame-src 'self' http://127.0.0.1:${shinyPort}/ ${hostIP}/ ${hostIP}:${shinyPort} ${hostIP}:${shinyPort}/ ${hostIP}/${shinyPort}; script-src 'self' http://127.0.0.1;`
   );
-  res.setHeader('X-Frame-Options', 'http://143.198.57.45/ http://143.198.57.45:8100 http://143.198.57.45:8100/ http://143.198.57.45/8100'); 
+  res.setHeader('X-Frame-Options', `${hostIP}/ ${hostIP}:${shinyPort} ${hostIP}:${shinyPort}/ ${hostIP}/${shinyPort}`); 
 
-  res.setHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:4000');
+  res.setHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:4001');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
 

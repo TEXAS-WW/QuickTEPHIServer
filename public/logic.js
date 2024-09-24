@@ -1,5 +1,8 @@
 console.log("hello world from JS!!")
 
+const hostIP = "129.106.9.127"
+const shinyPort = "9100"
+
 
 // Function to check authorization
 function checkAuthorization() {
@@ -14,11 +17,15 @@ function checkAuthorization() {
 // Run the check before the page content loads
 document.addEventListener('DOMContentLoaded', ()=> {
     const currentUrl = window.location.href;
-    if (currentUrl.includes('dashboard') || currentUrl.includes('8100')) {
+    if (currentUrl.includes('dashboard') || currentUrl.includes(`${shinyPort}`)) {
         checkAuthorization()
     }
 });
 
+
+let iframe = document.getElementById('dashboardFrame');
+// Set the new src
+iframe.src = `${hostIP}/${shinyPort}`;
 
 
  // JavaScript to handle form submission and API call
@@ -29,7 +36,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
   const accessCode = document.getElementById('accessCode').value;
 
   // Make the API call to the Node.js server
-  fetch('http://143.198.57.45/verifyAccessCode', {
+  fetch('${hostIP}/verifyAccessCode', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json'
