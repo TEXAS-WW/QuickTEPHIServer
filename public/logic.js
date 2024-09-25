@@ -1,6 +1,6 @@
 console.log("hello world from JS!!")
 
-const hostIP = "129.106.9.127"
+const hostIP = "http://129.106.9.127"
 const shinyPort = "9100"
 
 
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
   console.log(accessCode)
 
   // Make the API call to the Node.js server
-  fetch(`${hostIP}/verifyAccessCode`, {
+  fetch(`/verifyAccessCode`, {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json'
