@@ -23,9 +23,9 @@ document.addEventListener('DOMContentLoaded', ()=> {
 });
 
 
-let iframe = document.getElementById('dashboardFrame');
-// Set the new src
-iframe.src = `${hostIP}/${shinyPort}`;
+// let iframe = document.getElementById('dashboardFrame');
+// // Set the new src
+// iframe.src = `${hostIP}/${shinyPort}`;
 
 
  // JavaScript to handle form submission and API call
@@ -35,8 +35,10 @@ iframe.src = `${hostIP}/${shinyPort}`;
   // Get the access code from the form
   const accessCode = document.getElementById('accessCode').value;
 
+  console.log(accessCode)
+
   // Make the API call to the Node.js server
-  fetch('${hostIP}/verifyAccessCode', {
+  fetch(`${hostIP}/verifyAccessCode`, {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json'
