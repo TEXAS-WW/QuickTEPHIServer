@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const app = express();
-const port = 4000;
+const port = 4001;
 
 var http = require('http');
 var fs = require('fs');
@@ -36,7 +36,7 @@ app.use((req, res, next) => {
   );
   res.setHeader('X-Frame-Options', `${hostIP}/ ${hostIP}:${shinyPort} ${hostIP}:${shinyPort}/ ${hostIP}/${shinyPort}`); 
 
-  res.setHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:4001');
+  res.setHeader('Access-Control-Allow-Origin', `http://127.0.0.1:${port}`);
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
 
